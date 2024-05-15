@@ -1,5 +1,6 @@
+// GET
 fetch("https://www.nodejs.sulla.hu/data")
-.then(function (datas) {
+.then(function getAccommodations (datas) {
     return datas.json();
 })
 .then(function(datas) {
@@ -14,7 +15,7 @@ fetch("https://www.nodejs.sulla.hu/data")
                         <h5 class="card-title">Location:  ${datas[i].location}</h5>
                         <h5 class="card-title">Price: ${datas[i].price}</h5>
                         <h5 class="card-title">Minimum Nights:  ${datas[i].minimum_nights}</h5>
-                        <button class="btn btn-dark" style="width: 100%;">Törlés</button>
+                        <button class="btn btn-dark" style="width: 100%;" onclick ="deleteAccommodation()">Törlés</button>
                         <button class="btn btn-dark mt-1" style="width: 100%;">Modosítás</button>
                         <button class="btn btn-dark mt-1" style="width: 100%;">Részletek</button>
                     </div>
@@ -24,4 +25,42 @@ fetch("https://www.nodejs.sulla.hu/data")
         container.innerHTML += cardHtml;
     }
 });
+
+//POST
+function addAccommodation() {
+    const name = document.getElementById('name').value;
+    const location = document.getElementById('location').value;
+    const price = document.getElementById('price').value;
+    const min_nights = document.getElementById('min_nights').value;
+    const hostname = document.getElementById('hostname').value;
+    const newAccommodation = {
+        name: name,
+        location: location,
+        price: price,
+        minimum_nights: min_nights,
+        hostname: hostname
+    };
+    fetch("https://www.nodejs.sulla.hu/data", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newAccommodation),
+    })
+}
+//DELETE
+function deleteAccommodation(id) {
+    const confirmDelete = confirm('Biztosan törlöd?');
+    if (confirmDelete) {
+        fetch(`https://www.nodejs.sulla.hu/data/${id}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+        getAccommodations();
+        }
+    });
+    }   
+} 
+
 
