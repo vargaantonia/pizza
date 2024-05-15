@@ -1,6 +1,7 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: darkslategrey;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: url('0.avif');
+
 }
 footer {
     position: fixed;
@@ -53,7 +54,26 @@ p{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
+    margin-top: 20px;
 }
 label{
     border-radius: 5px;
+}
+
+a{
+    padding-left: 40px;
+}
+li{
+    padding-left: 40px;
+}
+nav{
+    padding-bottom: 40px;
+}
+.be{
+    text-align: center;
+}
+label{
+    width: 200px;
+    padding-bottom: 15px;
+    color: black;
 }

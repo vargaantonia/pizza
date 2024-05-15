@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +24,20 @@
             </ul>
         </div>
     </nav>
-    <div id="container" class="container">
-        <div class="row">
-        </div>
+    <div class="be card2">
+        <p style="color: black; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Új Szállás bevitele</p>
+        <label for="">Name: </label>
+        <input type="text" id="name"><br>
+        <label for="">Location: </label>
+        <input type="text" id="location"><br>
+        <label for="">Price: </label>
+        <input type="number" id="price"><br>
+        <label for="">Minimum Nights: </label>
+        <input type="number" id="min_nights"><br>
+        <label for="">Host Name: </label>
+        <input type="text" id="hostname"><br>
+        <button onclick="addAccommodation()">Szállás felvitele</button>
+        <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
